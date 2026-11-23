@@ -24,12 +24,17 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.65;
       padding-bottom: 3rem;
+      overflow-x: hidden;
     }
 
     /* Sticky Top Navbar */
@@ -37,11 +42,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(15, 118, 110, 0.96);
+      background: rgba(15, 118, 110, 0.97);
       backdrop-filter: blur(6px);
       color: #fff;
-      padding: 0.75rem 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+      padding: 0.7rem 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
     }
 
     .nav-inner {
@@ -62,22 +67,22 @@
 
     .nav-links {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.45rem;
       flex-wrap: wrap;
     }
 
     .nav-links a {
       color: #ccfbf1;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      padding: 0.3rem 0.75rem;
+      padding: 0.3rem 0.72rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       transition: all 0.2s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover, .nav-links a:active {
       background: #ffffff;
       color: var(--primary-dark);
     }
@@ -85,8 +90,8 @@
     /* Main Container */
     .container {
       max-width: 960px;
-      margin: 1.5rem auto 0;
-      padding: 0 1rem;
+      margin: 1.25rem auto 0;
+      padding: 0 0.85rem;
     }
 
     /* Hero Banner */
@@ -94,55 +99,56 @@
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: #fff;
       border-radius: 16px;
-      padding: 2rem;
+      padding: 1.65rem;
       box-shadow: 0 10px 25px rgba(15, 118, 110, 0.2);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .hero h1 {
-      font-size: 1.65rem;
+      font-size: 1.5rem;
+      line-height: 1.3;
       margin-bottom: 0.4rem;
     }
 
     .hero p.subtitle {
       color: #ccfbf1;
-      font-size: 1rem;
-      margin-bottom: 1rem;
+      font-size: 0.98rem;
+      margin-bottom: 0.95rem;
     }
 
     .hero .intro-box {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.13);
       border-left: 4px solid #5eead4;
-      padding: 0.9rem 1.1rem;
+      padding: 0.85rem 1rem;
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
 
-    /* Info Grid */
+    /* Info Grid (Tanpa Durasi & Jumlah Soal) */
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 0.75rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .info-item {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 0.85rem 1rem;
+      padding: 0.8rem 1rem;
     }
 
     .info-item span {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--primary);
     }
 
     .info-item strong {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: var(--text);
     }
 
@@ -150,33 +156,35 @@
     section.bab {
       background: var(--card);
       border-radius: 16px;
-      padding: 1.8rem;
-      margin-bottom: 2rem;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
       border: 1px solid var(--border);
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
 
     h2.bab-title {
       color: var(--primary);
-      font-size: 1.35rem;
+      font-size: 1.28rem;
       border-bottom: 3px solid var(--primary);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      padding-bottom: 0.45rem;
+      margin-bottom: 0.95rem;
     }
 
     h3.sub-title {
       color: var(--primary-dark);
-      font-size: 1.12rem;
-      margin-top: 1.4rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.08rem;
+      margin-top: 1.35rem;
+      margin-bottom: 0.55rem;
     }
 
     p {
       margin-bottom: 0.85rem;
+      font-size: 0.96rem;
     }
 
     ul.clean-list {
-      margin: 0.5rem 0 1rem 1.35rem;
+      margin: 0.5rem 0 1rem 1.25rem;
+      font-size: 0.95rem;
     }
 
     ul.clean-list li {
@@ -186,25 +194,29 @@
     /* Tables */
     .table-wrap {
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       margin: 1rem 0 1.4rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
     }
 
     table {
       width: 100%;
+      min-width: 520px;
       border-collapse: collapse;
-      font-size: 0.93rem;
+      font-size: 0.91rem;
     }
 
     th {
       background: var(--primary);
       color: #fff;
       text-align: left;
-      padding: 0.7rem 0.9rem;
+      padding: 0.65rem 0.85rem;
     }
 
     td {
-      padding: 0.65rem 0.9rem;
-      border: 1px solid var(--border);
+      padding: 0.6rem 0.85rem;
+      border-top: 1px solid var(--border);
     }
 
     tr:nth-child(even) td {
@@ -216,7 +228,7 @@
       background: #f8fafc;
       border: 2px solid #99f6e4;
       border-radius: 14px;
-      padding: 1.25rem;
+      padding: 1.1rem 0.75rem;
       margin: 1rem 0;
       text-align: center;
     }
@@ -224,21 +236,21 @@
     .sim-title {
       font-weight: 700;
       color: var(--primary);
-      font-size: 0.95rem;
-      margin-bottom: 0.85rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
     }
 
     .cards-row {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 0.9rem;
+      gap: 0.55rem;
+      margin-bottom: 0.85rem;
     }
 
     .b-card {
-      width: 112px;
-      height: 138px;
+      width: 96px;
+      height: 126px;
       border-radius: 12px;
       border: 2.5px solid var(--primary);
       background: #ffffff;
@@ -247,13 +259,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 0.65rem 0.4rem;
+      padding: 0.55rem 0.35rem;
       transition: transform 0.18s ease, background 0.2s ease;
       user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .b-card:hover {
-      transform: translateY(-3px);
+    .b-card:active {
+      transform: scale(0.95);
     }
 
     .b-card.off {
@@ -264,24 +277,24 @@
 
     .dots-grid {
       display: grid;
-      gap: 5px;
+      gap: 4px;
       place-items: center;
-      min-height: 68px;
+      min-height: 58px;
     }
 
     .dot {
-      width: 11px;
-      height: 11px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: var(--primary);
     }
 
     .bit-pill {
       display: inline-block;
-      padding: 0.15rem 0.75rem;
+      padding: 0.12rem 0.65rem;
       border-radius: 6px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       background: var(--primary);
       color: #fff;
     }
@@ -292,80 +305,191 @@
 
     .sim-result {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.92rem;
       color: var(--text);
       background: #ffffff;
       display: inline-block;
-      padding: 0.45rem 1.1rem;
-      border-radius: 999px;
+      padding: 0.45rem 0.95rem;
+      border-radius: 12px;
       border: 1px solid var(--border);
     }
 
-    /* Visual Diagram Frames & Subtle Animations */
+    /* Visual Diagram Frames */
     figure.diagram-frame {
       margin: 1rem 0 1.4rem;
       text-align: center;
     }
 
     figure.diagram-frame svg {
-      max-width: 100%;
+      width: 100%;
       height: auto;
+      display: block;
       border-radius: 12px;
       box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+      will-change: transform;
     }
 
     figcaption {
       font-style: italic;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: var(--muted);
-      margin-top: 0.45rem;
+      margin-top: 0.5rem;
     }
 
-    @keyframes floatSlow {
+    /* =====================================================================
+       GPU-ACCELERATED EDUCATIONAL ANIMATIONS (SMOOTH ON MOBILE & DESKTOP)
+       ===================================================================== */
+
+    /* Bab 1: Step-by-step highlight sequence */
+    @keyframes stepPulse1 {
+      0%, 100% { opacity: 0.55; transform: scale(0.98); }
+      10%, 30% { opacity: 1; transform: scale(1.02); }
+      40% { opacity: 0.65; transform: scale(0.98); }
+    }
+    @keyframes stepPulse2 {
+      0%, 32%, 100% { opacity: 0.55; transform: scale(0.98); }
+      42%, 62% { opacity: 1; transform: scale(1.02); }
+      72% { opacity: 0.65; transform: scale(0.98); }
+    }
+    @keyframes stepPulse3 {
+      0%, 64% { opacity: 0.55; transform: scale(0.98); }
+      74%, 94% { opacity: 1; transform: scale(1.02); }
+      100% { opacity: 0.65; transform: scale(0.98); }
+    }
+    @keyframes arrowSlideUp {
+      0%, 100% { transform: translateY(4px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .anim-step-1 { transform-box: fill-box; transform-origin: center; animation: stepPulse1 6s infinite; }
+    .anim-step-2 { transform-box: fill-box; transform-origin: center; animation: stepPulse2 6s infinite; }
+    .anim-step-3 { transform-box: fill-box; transform-origin: center; animation: stepPulse3 6s infinite; }
+    .anim-arrow-up { animation: arrowSlideUp 1.8s ease-in-out infinite; }
+
+    /* Bab 2.1: Robot/Sprite moving along 5x5 grid path */
+    /* Start (26,182) -> Top-Left (26,26) -> Top-Right (234,26) -> Finish (234,78) */
+    @keyframes gridRunner {
+      0%   { transform: translate(26px, 182px); }
+      12%  { transform: translate(26px, 182px); }
+      38%  { transform: translate(26px, 26px); }
+      45%  { transform: translate(26px, 26px); }
+      72%  { transform: translate(234px, 26px); }
+      78%  { transform: translate(234px, 26px); }
+      92%  { transform: translate(234px, 78px); }
+      100% { transform: translate(234px, 78px); }
+    }
+    @keyframes dashFlow {
+      to { stroke-dashoffset: -28; }
+    }
+    .anim-grid-runner { animation: gridRunner 7.5s ease-in-out infinite; }
+    .anim-dash-flow { stroke-dasharray: 8 6; animation: dashFlow 1.2s linear infinite; }
+
+    /* Bab 2.2: Scratch Cat moving toward Coin & Coin spinning */
+    @keyframes scratchCatRun {
+      0%, 15%  { transform: translateX(0px); }
+      55%, 80% { transform: translateX(74px); }
+      100%     { transform: translateX(0px); }
+    }
+    @keyframes coinBounce {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
+      50%      { transform: translateY(-6px); }
     }
+    @keyframes speechPop {
+      0%, 58%  { opacity: 0; transform: scale(0.8); }
+      65%, 88% { opacity: 1; transform: scale(1); }
+      95%, 100%{ opacity: 0; transform: scale(0.8); }
+    }
+    .anim-cat-run { animation: scratchCatRun 5.5s ease-in-out infinite; }
+    .anim-coin-bounce { animation: coinBounce 1.8s ease-in-out infinite; }
+    .anim-speech-pop { transform-box: fill-box; transform-origin: bottom left; animation: speechPop 5.5s ease-in-out infinite; }
 
+    /* Bab 3: Phishing Warning Shake, Shield Pulse, Kindness Heart & Toxic Block */
+    @keyframes warningShake {
+      0%, 100% { transform: rotate(0deg); }
+      20%      { transform: rotate(-5deg); }
+      40%      { transform: rotate(5deg); }
+      60%      { transform: rotate(-3deg); }
+      80%      { transform: rotate(3deg); }
+    }
     @keyframes pulseShield {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.035); }
+      50%      { transform: scale(1.06); }
+    }
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-5px); }
+    }
+    @keyframes blockStamp {
+      0%, 20%  { transform: scale(1); }
+      30%      { transform: scale(1.08); }
+      40%, 100%{ transform: scale(1); }
     }
 
-    .anim-float {
-      animation: floatSlow 3.2s ease-in-out infinite;
-    }
-
-    .anim-pulse {
-      transform-origin: center;
-      transform-box: fill-box;
-      animation: pulseShield 2.8s ease-in-out infinite;
-    }
+    .anim-warn-shake { transform-box: fill-box; transform-origin: center; animation: warningShake 2.6s ease-in-out infinite; }
+    .anim-pulse { transform-box: fill-box; transform-origin: center; animation: pulseShield 2.5s ease-in-out infinite; }
+    .anim-float { animation: floatGentle 3s ease-in-out infinite; }
+    .anim-block-stamp { transform-box: fill-box; transform-origin: center; animation: blockStamp 3.2s ease-in-out infinite; }
 
     /* Callout Box */
     .callout {
       background: var(--accent-light);
       border-left: 5px solid var(--accent);
       border-radius: 8px;
-      padding: 1rem 1.2rem;
+      padding: 0.95rem 1.1rem;
       margin: 1.1rem 0;
     }
 
     .callout-title {
       font-weight: 700;
       color: var(--primary-dark);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.96rem;
     }
 
     .callout p {
       margin-bottom: 0.3rem;
-      font-size: 0.94rem;
+      font-size: 0.92rem;
     }
 
     footer {
       text-align: center;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       margin-top: 2rem;
+      padding: 0 1rem;
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 1.25rem;
+      }
+      .hero h1 {
+        font-size: 1.25rem;
+      }
+      section.bab {
+        padding: 1.15rem;
+      }
+      h2.bab-title {
+        font-size: 1.14rem;
+      }
+      .b-card {
+        width: 58px;
+        height: 106px;
+        padding: 0.4rem 0.2rem;
+      }
+      .dot {
+        width: 6.5px;
+        height: 6.5px;
+      }
+      .dots-grid {
+        gap: 2.5px;
+        min-height: 46px;
+      }
+      .bit-pill {
+        font-size: 0.78rem;
+        padding: 0.1rem 0.45rem;
+      }
     }
   </style>
 </head>
@@ -388,27 +512,23 @@
       <h1>MODUL BACAAN &amp; PANDUAN VISUAL BELAJAR MANDIRI</h1>
       <p class="subtitle">Pegangan Resmi Siswa Kelas IX SMP — Persiapan Penilaian Akhir Semester 1</p>
       <div class="intro-box">
-        Halo teman-teman kelas IX! Karena buku catatan/paket dikumpulkan sebagai bahan penilaian tugas, modul visual interaktif ini disiapkan khusus sebagai pegangan belajar mandirimu di rumah. Pelajari langkah demi langkah contoh ilustrasi perhitungan, diagram balok asli Scratch, dan ilustrasi animasi keamanan digital berikut agar kamu siap menghadapi ujian nanti.
+        Halo teman-teman kelas IX! Karena buku catatan/paket dikumpulkan sebagai bahan penilaian tugas, modul visual interaktif ini disiapkan khusus sebagai pegangan belajar mandirimu di rumah. Amati animasi langkah demi langkah perhitungan bilangan, simulasi balok Scratch, serta animasi keamanan digital berikut agar kamu lebih mudah memahami seluruh materi Semester 1.
       </div>
     </header>
 
-    <!-- INFO METADATA -->
+    <!-- INFO METADATA (TANPA DURASI WAKTU & JUMLAH SOAL) -->
     <div class="info-grid">
       <div class="info-item">
         <span>Mata Pelajaran</span>
-        <strong>Informatika (Kelas IX)</strong>
+        <strong>Informatika (Kelas IX SMP)</strong>
       </div>
       <div class="info-item">
-        <span>Durasi Ujian</span>
-        <strong>90 Menit</strong>
-      </div>
-      <div class="info-item">
-        <span>Materi Ujian</span>
+        <span>Cakupan Materi</span>
         <strong>3 Bab Utama Semester 1</strong>
       </div>
       <div class="info-item">
-        <span>Bentuk Soal</span>
-        <strong>45 Pilihan Ganda &amp; 5 Uraian</strong>
+        <span>Mode Belajar</span>
+        <strong>Mandiri Interaktif (HP &amp; Laptop)</strong>
       </div>
     </div>
 
@@ -462,7 +582,7 @@
 
       <h3 class="sub-title">A. Cara Cepat Angka Sederhana (1–31): Metode Kartu Titik Biner</h3>
       <p>
-        Untuk mengubah bilangan desimal kecil (maksimal 31) ke biner atau sebaliknya, bayangkan 5 buah kartu dengan jumlah titik kelipatan dua dari kanan ke kiri (1, 2, 4, 8, 16). Kartu yang titiknya terlihat bernilai <strong>1</strong>, sedangkan kartu yang tertutup bernilai <strong>0</strong>. <em>Klik kartu di bawah ini untuk mencoba simulasinya!</em>
+        Untuk mengubah bilangan desimal kecil (maksimal 31) ke biner atau sebaliknya, bayangkan 5 buah kartu dengan jumlah titik kelipatan dua dari kanan ke kiri (1, 2, 4, 8, 16). Kartu yang titiknya terlihat bernilai <strong>1</strong>, sedangkan kartu yang tertutup bernilai <strong>0</strong>. <em>Sentuh/klik kartu di bawah ini untuk mencoba simulasinya!</em>
       </p>
 
       <div class="sim-box">
@@ -475,7 +595,7 @@
 
       <h3 class="sub-title">B. Cara Angka Sedang hingga Sulit (Ratusan): Pembagian Berulang &amp; Tabel Pangkat</h3>
       <p>
-        Untuk bilangan besar (seperti angka ratusan) pada konversi Desimal &harr; Biner, Desimal &harr; Oktal, maupun Desimal &harr; Heksadesimal, gunakan dua teknik utama berikut:
+        Untuk bilangan besar (seperti angka ratusan) pada konversi Desimal &harr; Biner, Desimal &harr; Oktal, maupun Desimal &harr; Heksadesimal, perhatikan animasi urutan langkah berikut:
       </p>
       <ul class="clean-list">
         <li>
@@ -487,61 +607,79 @@
       </ul>
 
       <figure class="diagram-frame">
-        <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 900 325" xmlns="http://www.w3.org/2000/svg">
           <!-- Left Panel -->
-          <rect x="12" y="12" width="425" height="296" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+          <rect x="12" y="12" width="425" height="300" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
           <text x="224" y="42" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f766e">1. DESIMAL &rarr; HEKSADESIMAL (Contoh: 430(10))</text>
           
-          <text x="45" y="92" font-family="monospace" font-size="15" font-weight="bold" fill="#1e293b">430 &divide; 16 = 26</text>
-          <rect x="195" y="72" width="185" height="30" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-          <text x="287" y="92" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">sisa 14 &rarr; Huruf E</text>
+          <!-- Step 1 -->
+          <g class="anim-step-1">
+            <text x="42" y="92" font-family="monospace" font-size="15" font-weight="bold" fill="#1e293b">430 &divide; 16 = 26</text>
+            <rect x="192" y="72" width="185" height="30" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="284" y="92" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">sisa 14 &rarr; Huruf E</text>
+          </g>
 
-          <text x="45" y="144" font-family="monospace" font-size="15" font-weight="bold" fill="#1e293b"> 26 &divide; 16 =  1</text>
-          <rect x="195" y="124" width="185" height="30" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-          <text x="287" y="144" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">sisa 10 &rarr; Huruf A</text>
+          <!-- Step 2 -->
+          <g class="anim-step-2">
+            <text x="42" y="144" font-family="monospace" font-size="15" font-weight="bold" fill="#1e293b"> 26 &divide; 16 =  1</text>
+            <rect x="192" y="124" width="185" height="30" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="284" y="144" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">sisa 10 &rarr; Huruf A</text>
+          </g>
 
-          <text x="45" y="196" font-family="monospace" font-size="15" font-weight="bold" fill="#1e293b">  1 &divide; 16 =  0</text>
-          <rect x="195" y="176" width="185" height="30" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-          <text x="287" y="196" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">sisa  1 &rarr; Angka 1</text>
+          <!-- Step 3 -->
+          <g class="anim-step-3">
+            <text x="42" y="196" font-family="monospace" font-size="15" font-weight="bold" fill="#1e293b">  1 &divide; 16 =  0</text>
+            <rect x="192" y="176" width="185" height="30" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="284" y="196" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">sisa  1 &rarr; Angka 1</text>
+          </g>
 
-          <line x1="395" y1="202" x2="395" y2="76" stroke="#dc2626" stroke-width="3"/>
-          <polygon points="395,68 389,80 401,80" fill="#dc2626"/>
-          <text x="403" y="136" font-size="11" font-weight="bold" fill="#dc2626">Baca</text>
-          <text x="403" y="150" font-size="11" font-weight="bold" fill="#dc2626">ke atas</text>
+          <!-- Animated Up Arrow -->
+          <g class="anim-arrow-up">
+            <line x1="394" y1="204" x2="394" y2="78" stroke="#dc2626" stroke-width="3.5"/>
+            <polygon points="394,68 387,81 401,81" fill="#dc2626"/>
+            <text x="403" y="136" font-size="11" font-weight="bold" fill="#dc2626">Baca</text>
+            <text x="403" y="150" font-size="11" font-weight="bold" fill="#dc2626">ke atas</text>
+          </g>
 
-          <rect x="35" y="236" width="378" height="44" rx="10" fill="#0f766e"/>
-          <text x="224" y="263" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">Hasil Akhir: 430(10) = 1AE(16)</text>
+          <rect x="35" y="238" width="378" height="44" rx="10" fill="#0f766e"/>
+          <text x="224" y="265" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">Hasil Akhir: 430(10) = 1AE(16)</text>
 
           <!-- Right Panel -->
-          <rect x="462" y="12" width="425" height="296" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+          <rect x="462" y="12" width="425" height="300" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
           <text x="674" y="42" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f766e">2. OKTAL &rarr; DESIMAL (Contoh: 327(8))</text>
 
-          <!-- Col 1 -->
-          <rect x="492" y="68" width="102" height="38" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
-          <text x="543" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Digit: 3</text>
-          <text x="543" y="130" text-anchor="middle" font-size="13" fill="#475569">Bobot: 8&#178; = 64</text>
-          <rect x="485" y="148" width="116" height="34" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
-          <text x="543" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">3 &times; 64 = 192</text>
+          <!-- Col 3 (Rightmost: pangkat 0) animated first -->
+          <g class="anim-step-1">
+            <rect x="754" y="68" width="102" height="38" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="805" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Digit: 7</text>
+            <text x="805" y="130" text-anchor="middle" font-size="13" fill="#475569">Bobot: 8&#8304; = 1</text>
+            <rect x="747" y="148" width="116" height="34" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+            <text x="805" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">7 &times; 1 = 7</text>
+          </g>
 
-          <!-- Col 2 -->
-          <rect x="623" y="68" width="102" height="38" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
-          <text x="674" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Digit: 2</text>
-          <text x="674" y="130" text-anchor="middle" font-size="13" fill="#475569">Bobot: 8&#185; = 8</text>
-          <rect x="616" y="148" width="116" height="34" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
-          <text x="674" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">2 &times; 8 = 16</text>
+          <!-- Col 2 (Middle: pangkat 1) animated second -->
+          <g class="anim-step-2">
+            <rect x="623" y="68" width="102" height="38" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="674" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Digit: 2</text>
+            <text x="674" y="130" text-anchor="middle" font-size="13" fill="#475569">Bobot: 8&#185; = 8</text>
+            <rect x="616" y="148" width="116" height="34" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+            <text x="674" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">2 &times; 8 = 16</text>
+          </g>
 
-          <!-- Col 3 -->
-          <rect x="754" y="68" width="102" height="38" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
-          <text x="805" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Digit: 7</text>
-          <text x="805" y="130" text-anchor="middle" font-size="13" fill="#475569">Bobot: 8&#8304; = 1</text>
-          <rect x="747" y="148" width="116" height="34" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
-          <text x="805" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">7 &times; 1 = 7</text>
+          <!-- Col 1 (Leftmost: pangkat 2) animated third -->
+          <g class="anim-step-3">
+            <rect x="492" y="68" width="102" height="38" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="543" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">Digit: 3</text>
+            <text x="543" y="130" text-anchor="middle" font-size="13" fill="#475569">Bobot: 8&#178; = 64</text>
+            <rect x="485" y="148" width="116" height="34" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+            <text x="543" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">3 &times; 64 = 192</text>
+          </g>
 
-          <text x="674" y="212" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#1e293b">Jumlahkan: 192 + 16 + 7 = 215</text>
-          <rect x="485" y="236" width="378" height="44" rx="10" fill="#0f766e"/>
-          <text x="674" y="263" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">Hasil Akhir: 327(8) = 215(10)</text>
+          <text x="674" y="214" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#1e293b">Jumlahkan: 192 + 16 + 7 = 215</text>
+          <rect x="485" y="238" width="378" height="44" rx="10" fill="#0f766e"/>
+          <text x="674" y="265" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">Hasil Akhir: 327(8) = 215(10)</text>
         </svg>
-        <figcaption>Gambar 1.2 Contoh langkah pembagian berulang (Desimal ke Heksadesimal) dan tabel bobot perpangkatan (Oktal ke Desimal).</figcaption>
+        <figcaption>Gambar 1.2 Animasi urutan langkah pembagian berulang dari atas ke bawah lalu dibaca ke atas (kiri) serta perhitungan bobot perpangkatan dari kanan ke kiri (kanan).</figcaption>
       </figure>
 
       <div class="callout">
@@ -562,13 +700,13 @@
 
       <h3 class="sub-title">A. Logika Algoritma Tanpa Komputer (Unplugged Grid)</h3>
       <p>
-        Pada latihan papan grid, kamu berperan sebagai pengarah jalan bagi karakter. Kunci utamanya adalah selalu memperhatikan arah hadap karakter sebelum menjalankan perintah belok kanan (searah jarum jam 90&deg;) atau belok kiri (berlawanan jarum jam 90&deg;).
+        Perhatikan animasi robot di bawah ini yang berjalan mengikuti kartu perintah dari petak <strong>START</strong> menuju <strong>FINISH</strong>. Kunci utamanya adalah selalu memperhatikan arah hadap karakter sebelum menjalankan perintah belok kanan (searah jarum jam 90&deg;) atau belok kiri (berlawanan jarum jam 90&deg;).
       </p>
 
       <figure class="diagram-frame">
         <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg">
           <rect x="8" y="8" width="884" height="324" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-          <text x="450" y="34" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#0f766e">ALGORITMA UNPLUGGED: MENELUSURI RUTE KARAKTER PADA PAPAN GRID 5&times;5</text>
+          <text x="450" y="34" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#0f766e">ANIMASI ALGORITMA UNPLUGGED: RUTE KARAKTER PADA PAPAN GRID 5&times;5</text>
 
           <!-- 5x5 Grid -->
           <g transform="translate(36, 52)">
@@ -585,8 +723,8 @@
             <text x="130" y="82" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">BATU</text>
             <rect x="156" y="52" width="52" height="52" fill="#fff" stroke="#64748b"/>
             <rect x="208" y="52" width="52" height="52" fill="#fef08a" stroke="#64748b"/>
-            <text x="234" y="76" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#854d0e">FINISH</text>
-            <text x="234" y="92" text-anchor="middle" font-size="12" fill="#854d0e">&#9733;</text>
+            <text x="234" y="74" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#854d0e">FINISH</text>
+            <text x="234" y="92" text-anchor="middle" font-size="13" fill="#854d0e">&#9733;</text>
             <!-- Row 2 -->
             <rect x="0" y="104" width="52" height="52" fill="#fff" stroke="#64748b"/>
             <rect x="52" y="104" width="52" height="52" fill="#fff" stroke="#64748b"/>
@@ -596,8 +734,7 @@
             <rect x="208" y="104" width="52" height="52" fill="#fff" stroke="#64748b"/>
             <!-- Row 3 -->
             <rect x="0" y="156" width="52" height="52" fill="#ccfbf1" stroke="#64748b"/>
-            <text x="26" y="180" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f766e">START</text>
-            <text x="26" y="195" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f766e">(&rarr;)</text>
+            <text x="26" y="198" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#0f766e">START</text>
             <rect x="52" y="156" width="52" height="52" fill="#fca5a5" stroke="#64748b"/>
             <text x="78" y="186" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">BATU</text>
             <rect x="104" y="156" width="52" height="52" fill="#fff" stroke="#64748b"/>
@@ -610,9 +747,17 @@
             <rect x="156" y="208" width="52" height="52" fill="#fff" stroke="#64748b"/>
             <rect x="208" y="208" width="52" height="52" fill="#fff" stroke="#64748b"/>
 
-            <!-- Route Path -->
-            <polyline points="26,182 26,26 234,26 234,74" fill="none" stroke="#0284c7" stroke-width="4" stroke-linejoin="round"/>
+            <!-- Animated Route Path -->
+            <polyline class="anim-dash-flow" points="26,182 26,26 234,26 234,74" fill="none" stroke="#0284c7" stroke-width="4" stroke-linejoin="round"/>
             <polygon points="234,82 228,70 240,70" fill="#0284c7"/>
+
+            <!-- Moving Character Token -->
+            <g class="anim-grid-runner">
+              <circle cx="0" cy="0" r="14" fill="#0f766e" stroke="#ffffff" stroke-width="2.5"/>
+              <circle cx="-4" cy="-3" r="2" fill="#ffffff"/>
+              <circle cx="4" cy="-3" r="2" fill="#ffffff"/>
+              <path d="M -5 4 Q 0 8 5 4" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+            </g>
           </g>
 
           <!-- Command Cards -->
@@ -638,12 +783,12 @@
           <text x="355" y="294" font-size="12.5" font-weight="bold" fill="#1e293b">5. PUTAR KANAN 90&deg; &amp; MAJU 1</text>
           <text x="355" y="310" font-size="11.5" fill="#334155">Menghadap BAWAH (&darr;) lalu maju 1 petak ke FINISH</text>
         </svg>
-        <figcaption>Gambar 2.1 Contoh penelusuran jalur karakter dari START menuju FINISH menghindari rintangan menggunakan kartu perintah.</figcaption>
+        <figcaption>Gambar 2.1 Animasi karakter berjalan menyusuri jalur dari START menuju FINISH menghindari rintangan batu sesuai urutan kartu perintah.</figcaption>
       </figure>
 
-      <h3 class="sub-title">B. Tampilan Asli Situs Scratch &amp; Susunan Balok Puzzle (Plugged)</h3>
+      <h3 class="sub-title">B. Tampilan Asli Situs Scratch &amp; Simulasi Gerak Sprite (Plugged)</h3>
       <p>
-        Perhatikan tampilan antarmuka asli Scratch di bawah ini. Setiap balok memiliki lekukan puzzle (<em>jigsaw</em>) di bagian atas dan bawah agar bisa saling mengunci dari atas ke bawah. Balok berbentuk huruf <strong>'C'</strong> (seperti <code>repeat</code> dan <code>if-then</code>) berfungsi membungkus balok-balok lain di dalamnya.
+        Perhatikan antarmuka asli Scratch di bawah ini. Saat skrip di <strong>Script Area</strong> dijalankan, perhatikan bagaimana <strong>Sprite1</strong> di panggung kanan atas bergerak maju mendekati <strong>Koin</strong> hingga memunculkan balon pesan <code>"Selesai!"</code>.
       </p>
 
       <figure class="diagram-frame">
@@ -735,30 +880,40 @@
           <rect x="326" y="334" width="235" height="30" rx="4" fill="#9966ff" stroke="#774dcb" stroke-width="1.5"/>
           <text x="338" y="353" font-size="12" font-weight="bold" fill="#fff">say [Selesai!] for [2] secs</text>
 
-          <!-- 3. Stage -->
+          <!-- 3. Stage (Animated Cat & Coin) -->
           <rect x="648" y="76" width="254" height="162" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
           <text x="775" y="96" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#854d0e">3. STAGE (Panggung Aksi)</text>
           <rect x="660" y="106" width="88" height="22" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
           <text x="682" y="121" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#334155">skor</text>
           <rect x="708" y="109" width="34" height="16" rx="4" fill="#ff8c1a"/>
-          <text x="725" y="121" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#fff">10</text>
+          <text x="725" y="121" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#fff">+10</text>
 
-          <!-- Cat Sprite -->
-          <circle cx="722" cy="175" r="20" fill="#ffab19" stroke="#b45309" stroke-width="1.5"/>
-          <polygon points="706,162 710,145 719,157" fill="#ffab19" stroke="#b45309"/>
-          <polygon points="738,162 734,145 725,157" fill="#ffab19" stroke="#b45309"/>
-          <circle cx="716" cy="172" r="2.5" fill="#0f172a"/>
-          <circle cx="728" cy="172" r="2.5" fill="#0f172a"/>
-          <text x="722" y="212" text-anchor="middle" font-size="11" font-weight="bold" fill="#334155">Sprite1</text>
+          <!-- Animated Cat Sprite moving forward -->
+          <g class="anim-cat-run">
+            <circle cx="712" cy="180" r="20" fill="#ffab19" stroke="#b45309" stroke-width="1.5"/>
+            <polygon points="696,167 700,150 709,162" fill="#ffab19" stroke="#b45309"/>
+            <polygon points="728,167 724,150 715,162" fill="#ffab19" stroke="#b45309"/>
+            <circle cx="706" cy="177" r="2.5" fill="#0f172a"/>
+            <circle cx="718" cy="177" r="2.5" fill="#0f172a"/>
+            <text x="712" y="216" text-anchor="middle" font-size="11" font-weight="bold" fill="#334155">Sprite1</text>
 
-          <!-- Coin Sprite -->
-          <circle cx="835" cy="175" r="16" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
-          <text x="835" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="#854d0e">$</text>
-          <text x="835" y="212" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Koin</text>
+            <!-- Pop-up Speech Bubble when reaching Coin -->
+            <g class="anim-speech-pop">
+              <rect x="718" y="128" width="66" height="24" rx="8" fill="#ffffff" stroke="#9966ff" stroke-width="2"/>
+              <text x="751" y="144" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#6d28d9">Selesai!</text>
+            </g>
+          </g>
+
+          <!-- Animated Bouncing Coin Sprite -->
+          <g class="anim-coin-bounce">
+            <circle cx="835" cy="180" r="16" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+            <text x="835" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#854d0e">$</text>
+            <text x="835" y="216" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Koin</text>
+          </g>
 
           <!-- 4. Sprite Pane -->
           <rect x="648" y="246" width="254" height="126" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
-          <text x="775" y="266" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">4. SPRITE PANE (Panel Karakter)</text>
+          <text x="775" y="266" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e40af">4. SPRITE PANE (Panel Karakter)</text>
           <text x="775" y="286" text-anchor="middle" font-size="10.5" fill="#334155">Sprite: Sprite1 &nbsp; x: 0 &nbsp; y: 0 &nbsp; Size: 100</text>
           <rect x="676" y="300" width="86" height="58" rx="8" fill="#ffffff" stroke="#4d97ff" stroke-width="2"/>
           <circle cx="719" cy="322" r="10" fill="#ffab19"/>
@@ -768,7 +923,7 @@
           <circle cx="829" cy="322" r="10" fill="#facc15"/>
           <text x="829" y="348" text-anchor="middle" font-size="11" fill="#475569">Koin</text>
         </svg>
-        <figcaption>Gambar 2.2 Tampilan asli situs Scratch: Kategori balok di kiri, Block Palette, Script Area dengan balok puzzle saling mengunci, Stage, dan Sprite Pane.</figcaption>
+        <figcaption>Gambar 2.2 Tampilan asli situs Scratch beserta simulasi aksi pada Stage: Sprite1 bergerak maju menyentuh Koin dan menampilkan dialog "Selesai!".</figcaption>
       </figure>
 
       <h3 class="sub-title">C. Bentuk &amp; Fungsi 6 Kategori Balok Inti Scratch</h3>
@@ -847,7 +1002,7 @@
     <section id="bab3" class="bab">
       <h2 class="bab-title">BAB 3. KEAMANAN DATA PRIBADI &amp; ANTI-CYBERBULLYING</h2>
       <p>
-        Internet memberikan banyak manfaat untuk belajar dan berkarya, tetapi kita juga harus waspada terhadap kejahatan pencurian data (<em>phishing</em>) serta perundungan di dunia maya (<em>cyberbullying</em>). Simak dua ilustrasi animasi berikut untuk memahami cara bersikap cerdas dan aman di internet.
+        Internet memberikan banyak manfaat untuk belajar dan berkarya, tetapi kita juga harus waspada terhadap kejahatan pencurian data (<em>phishing</em>) serta perundungan di dunia maya (<em>cyberbullying</em>). Simak dua ilustrasi animasi bergerak berikut untuk memahami cara bersikap cerdas dan aman di internet.
       </p>
 
       <h3 class="sub-title">A. Perlindungan Data Pribadi &amp; Waspada Jebakan Phishing</h3>
@@ -862,18 +1017,20 @@
           <rect x="135" y="22" width="650" height="36" rx="12" fill="#1d4ed8"/>
           <text x="460" y="45" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">ANIMASI EDUKASI: WASPADA PHISHING &amp; LINDUNGI DATA PRIBADI!</text>
 
-          <!-- Smartphone with Phishing Alert -->
-          <rect x="44" y="105" width="132" height="225" rx="18" fill="#1e293b" stroke="#0f172a" stroke-width="2.5"/>
-          <rect x="53" y="122" width="114" height="191" rx="10" fill="#ffffff"/>
-          <rect x="60" y="134" width="100" height="94" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="1.8"/>
-          <text x="110" y="153" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#b91c1c">&#9888; PESAN PALSU</text>
-          <text x="110" y="171" text-anchor="middle" font-size="9.5" fill="#7f1d1d">Selamat! Klik link</text>
-          <text x="110" y="184" text-anchor="middle" font-size="9.5" fill="#7f1d1d">&amp; kirim kode OTP</text>
-          <text x="110" y="197" text-anchor="middle" font-size="9.5" fill="#7f1d1d">untuk hadiah!</text>
-          <rect x="72" y="205" width="76" height="18" rx="5" fill="#dc2626"/>
-          <text x="110" y="217" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#ffffff">JANGAN KLIK!</text>
+          <!-- Smartphone with Phishing Alert (Animated Shake) -->
+          <g class="anim-warn-shake">
+            <rect x="44" y="105" width="132" height="225" rx="18" fill="#1e293b" stroke="#0f172a" stroke-width="2.5"/>
+            <rect x="53" y="122" width="114" height="191" rx="10" fill="#ffffff"/>
+            <rect x="60" y="134" width="100" height="94" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="1.8"/>
+            <text x="110" y="153" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#b91c1c">&#9888; PESAN PALSU</text>
+            <text x="110" y="171" text-anchor="middle" font-size="9.5" fill="#7f1d1d">Selamat! Klik link</text>
+            <text x="110" y="184" text-anchor="middle" font-size="9.5" fill="#7f1d1d">&amp; kirim kode OTP</text>
+            <text x="110" y="197" text-anchor="middle" font-size="9.5" fill="#7f1d1d">untuk hadiah!</text>
+            <rect x="72" y="205" width="76" height="18" rx="5" fill="#dc2626"/>
+            <text x="110" y="217" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#ffffff">JANGAN KLIK!</text>
+          </g>
 
-          <!-- Red Cross Stop Badge -->
+          <!-- Red Cross Stop Badge (Floating) -->
           <g class="anim-float">
             <circle cx="188" cy="152" r="24" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
             <text x="188" y="159" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff">&times;</text>
@@ -887,26 +1044,19 @@
 
           <!-- Cartoon Student Character -->
           <g transform="translate(275, 215)">
-            <!-- Shirt -->
             <rect x="-42" y="26" width="84" height="68" rx="16" fill="#ffffff" stroke="#334155" stroke-width="2"/>
-            <!-- Tie -->
             <polygon points="-7,28 7,28 10,66 0,76 -10,66" fill="#1e3a8a"/>
-            <!-- Neck -->
             <rect x="-10" y="16" width="20" height="15" fill="#fdba74"/>
-            <!-- Head -->
             <circle cx="0" cy="-14" r="38" fill="#ffedd5" stroke="#9a3412" stroke-width="2"/>
-            <!-- Hair -->
             <path d="M -38 -14 A 38 38 0 0 1 38 -14 Q 15 -26 0 -14 Q -18 -26 -38 -14 Z" fill="#1e293b"/>
-            <!-- Eyes & Cheeks -->
             <circle cx="-14" cy="-12" r="5" fill="#0f172a"/>
             <circle cx="14" cy="-12" r="5" fill="#0f172a"/>
             <circle cx="-22" cy="-3" r="5.5" fill="#fda4af" opacity="0.7"/>
             <circle cx="22" cy="-3" r="5.5" fill="#fda4af" opacity="0.7"/>
-            <!-- Alert Mouth -->
             <circle cx="0" cy="4" r="5" fill="#e11d48"/>
           </g>
 
-          <!-- Glowing Cyber Shield + Padlock -->
+          <!-- Glowing Cyber Shield + Padlock (Pulsing) -->
           <g class="anim-pulse">
             <polygon points="495,122 572,148 560,252 495,302 430,252 418,148" fill="#0d9488" stroke="#115e59" stroke-width="3"/>
             <polygon points="495,136 558,158 548,244 495,286 442,244 432,158" fill="#14b8a6" stroke="#ccfbf1" stroke-width="1.5"/>
@@ -917,27 +1067,33 @@
             <text x="495" y="262" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">PERISAI DATA</text>
           </g>
 
-          <!-- Right Action Cards -->
-          <rect x="605" y="82" width="282" height="74" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
-          <text x="746" y="106" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a8a">1. PASSWORD KUAT</text>
-          <text x="746" y="125" text-anchor="middle" font-size="11" fill="#1e293b">Huruf Besar + Kecil + Angka + Simbol</text>
-          <text x="746" y="141" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">Contoh: B1nt@ng_Ku9!</text>
+          <!-- Right Action Cards (Sequential Step Highlight) -->
+          <g class="anim-step-1">
+            <rect x="605" y="82" width="282" height="74" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+            <text x="746" y="106" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a8a">1. PASSWORD KUAT</text>
+            <text x="746" y="125" text-anchor="middle" font-size="11" fill="#1e293b">Huruf Besar + Kecil + Angka + Simbol</text>
+            <text x="746" y="141" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">Contoh: B1nt@ng_Ku9!</text>
+          </g>
 
-          <rect x="605" y="168" width="282" height="74" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
-          <text x="746" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">2. AKTIFKAN 2FA</text>
-          <text x="746" y="211" text-anchor="middle" font-size="11" fill="#1e293b">Verifikasi 2 Langkah &amp; Kode OTP</text>
-          <text x="746" y="227" text-anchor="middle" font-size="11" fill="#1e293b">Jangan bagikan ke siapa pun!</text>
+          <g class="anim-step-2">
+            <rect x="605" y="168" width="282" height="74" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+            <text x="746" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">2. AKTIFKAN 2FA</text>
+            <text x="746" y="211" text-anchor="middle" font-size="11" fill="#1e293b">Verifikasi 2 Langkah &amp; Kode OTP</text>
+            <text x="746" y="227" text-anchor="middle" font-size="11" fill="#1e293b">Jangan bagikan ke siapa pun!</text>
+          </g>
 
-          <rect x="605" y="254" width="282" height="74" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-          <text x="746" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#78350f">3. INTERLAND GOOGLE</text>
-          <text x="746" y="297" text-anchor="middle" font-size="11" fill="#1e293b">Tower of Treasure &amp; Reality River:</text>
-          <text x="746" y="313" text-anchor="middle" font-size="11" fill="#1e293b">Kenali link palsu &amp; jaga akun!</text>
+          <g class="anim-step-3">
+            <rect x="605" y="254" width="282" height="74" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="746" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#78350f">3. INTERLAND GOOGLE</text>
+            <text x="746" y="297" text-anchor="middle" font-size="11" fill="#1e293b">Tower of Treasure &amp; Reality River:</text>
+            <text x="746" y="313" text-anchor="middle" font-size="11" fill="#1e293b">Kenali link palsu &amp; jaga akun!</text>
+          </g>
 
           <!-- Bottom Bar -->
           <rect x="44" y="342" width="843" height="28" rx="8" fill="#1e3a8a"/>
           <text x="465" y="361" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">Ingat Prinsip Aman Digital: Cek Pengirim &bull; Jaga Kerahasiaan OTP/Sandi &bull; Laporkan Penipuan</text>
         </svg>
-        <figcaption>Gambar 3.1 Ilustrasi animasi keamanan data pribadi: mewaspadai pesan tautan palsu (phishing) dan melindungi akun dengan perisai kata sandi kuat serta verifikasi dua langkah.</figcaption>
+        <figcaption>Gambar 3.1 Ilustrasi animasi keamanan data pribadi: mewaspadai pesan tautan palsu (phishing) yang bergetar peringatan dan melindungi akun dengan perisai kata sandi kuat serta 2FA.</figcaption>
       </figure>
 
       <ul class="clean-list">
@@ -961,13 +1117,15 @@
           <rect x="115" y="22" width="690" height="36" rx="12" fill="#0f766e"/>
           <text x="460" y="45" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">ANIMASI EDUKASI: STOP CYBERBULLYING &amp; SEBARKAN KEBAIKAN!</text>
 
-          <!-- Toxic Chat Box -->
-          <rect x="34" y="76" width="196" height="106" rx="12" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
-          <text x="132" y="98" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#b91c1c">&#128172; Komentar Jahat:</text>
-          <text x="132" y="118" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7f1d1d">&ldquo;Hahaha fotomu jelek!</text>
-          <text x="132" y="133" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7f1d1d">Gak usah ikut grup!&rdquo;</text>
-          <rect x="54" y="146" width="156" height="24" rx="6" fill="#dc2626"/>
-          <text x="132" y="162" text-anchor="middle" font-size="10" font-weight="bold" fill="#ffffff">&#128683; BLOKIR &amp; LAPORKAN</text>
+          <!-- Toxic Chat Box (Animated Block Stamp) -->
+          <g class="anim-block-stamp">
+            <rect x="34" y="76" width="196" height="106" rx="12" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+            <text x="132" y="98" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#b91c1c">&#128172; Komentar Jahat:</text>
+            <text x="132" y="118" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7f1d1d">&ldquo;Hahaha fotomu jelek!</text>
+            <text x="132" y="133" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7f1d1d">Gak usah ikut grup!&rdquo;</text>
+            <rect x="54" y="146" width="156" height="24" rx="6" fill="#dc2626"/>
+            <text x="132" y="162" text-anchor="middle" font-size="10" font-weight="bold" fill="#ffffff">&#128683; BLOKIR &amp; LAPORKAN</text>
+          </g>
 
           <!-- Victim Student (Sad) -->
           <g transform="translate(132, 232)">
@@ -981,19 +1139,21 @@
             <path d="M -10 8 Q 0 0 10 8" fill="none" stroke="#9a3412" stroke-width="2.5"/>
           </g>
 
-          <!-- Kindness Barrier + Heart -->
+          <!-- Kindness Barrier + Beating Heart -->
           <line x1="252" y1="76" x2="252" y2="328" stroke="#0d9488" stroke-width="3.5" stroke-dasharray="10,7"/>
           <g class="anim-pulse">
             <circle cx="252" cy="202" r="28" fill="#ec4899" stroke="#ffffff" stroke-width="3"/>
             <text x="252" y="211" text-anchor="middle" font-size="24" fill="#ffffff">&hearts;</text>
           </g>
 
-          <!-- Supportive Speech Bubble -->
-          <rect x="288" y="76" width="286" height="72" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
-          <polygon points="375,148 393,148 380,168" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
-          <text x="431" y="99" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">&ldquo;Jangan sedih! Screenshot buktinya,</text>
-          <text x="431" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">blokir pelaku, lalu lapor guru/ortu.</text>
-          <text x="431" y="131" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Kita dukung kamu!&rdquo;</text>
+          <!-- Supportive Speech Bubble (Floating) -->
+          <g class="anim-float">
+            <rect x="288" y="76" width="286" height="72" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <polygon points="375,148 393,148 380,168" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+            <text x="431" y="99" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">&ldquo;Jangan sedih! Screenshot buktinya,</text>
+            <text x="431" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">blokir pelaku, lalu lapor guru/ortu.</text>
+            <text x="431" y="131" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Kita dukung kamu!&rdquo;</text>
+          </g>
 
           <!-- Supportive Friend Character -->
           <g transform="translate(390, 226)">
@@ -1008,21 +1168,27 @@
             <path d="M -11 2 Q 0 14 11 2 Z" fill="#f43f5e"/>
           </g>
 
-          <!-- Right Action Cards -->
-          <rect x="595" y="82" width="292" height="74" rx="12" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
-          <text x="741" y="106" text-anchor="middle" font-size="12" font-weight="bold" fill="#831843">1. LANGKAH HADAPI BULLYING</text>
-          <text x="741" y="125" text-anchor="middle" font-size="11" fill="#1e293b">Jangan balas emosi &bull; Screenshot bukti</text>
-          <text x="741" y="141" text-anchor="middle" font-size="11" fill="#1e293b">Blokir &amp; Report &bull; Lapor Guru/Ortu</text>
+          <!-- Right Action Cards (Sequential Step Highlight) -->
+          <g class="anim-step-1">
+            <rect x="595" y="82" width="292" height="74" rx="12" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+            <text x="741" y="106" text-anchor="middle" font-size="12" font-weight="bold" fill="#831843">1. LANGKAH HADAPI BULLYING</text>
+            <text x="741" y="125" text-anchor="middle" font-size="11" fill="#1e293b">Jangan balas emosi &bull; Screenshot bukti</text>
+            <text x="741" y="141" text-anchor="middle" font-size="11" fill="#1e293b">Blokir &amp; Report &bull; Lapor Guru/Ortu</text>
+          </g>
 
-          <rect x="595" y="168" width="292" height="74" rx="12" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
-          <text x="741" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#115e59">2. KIND KINGDOM (INTERLAND)</text>
-          <text x="741" y="211" text-anchor="middle" font-size="11" fill="#1e293b">Menyebarkan pesan positif &amp; empati,</text>
-          <text x="741" y="227" text-anchor="middle" font-size="11" fill="#1e293b">menahan diri sebelum berbagi</text>
+          <g class="anim-step-2">
+            <rect x="595" y="168" width="292" height="74" rx="12" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+            <text x="741" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#115e59">2. KIND KINGDOM (INTERLAND)</text>
+            <text x="741" y="211" text-anchor="middle" font-size="11" fill="#1e293b">Menyebarkan pesan positif &amp; empati,</text>
+            <text x="741" y="227" text-anchor="middle" font-size="11" fill="#1e293b">menahan diri sebelum berbagi</text>
+          </g>
 
-          <rect x="595" y="254" width="292" height="74" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-          <text x="741" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#78350f">3. KAMPANYE POSTER &amp; VIDEO</text>
-          <text x="741" y="297" text-anchor="middle" font-size="11" fill="#1e293b">Canva: Judul singkat &amp; warna kontras</text>
-          <text x="741" y="313" text-anchor="middle" font-size="11" fill="#1e293b">Video: Ide &rarr; Rekam &rarr; Edit &rarr; Ekspor</text>
+          <g class="anim-step-3">
+            <rect x="595" y="254" width="292" height="74" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="741" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#78350f">3. KAMPANYE POSTER &amp; VIDEO</text>
+            <text x="741" y="297" text-anchor="middle" font-size="11" fill="#1e293b">Canva: Judul singkat &amp; warna kontras</text>
+            <text x="741" y="313" text-anchor="middle" font-size="11" fill="#1e293b">Video: Ide &rarr; Rekam &rarr; Edit &rarr; Ekspor</text>
+          </g>
 
           <!-- Bottom Bar -->
           <rect x="34" y="342" width="853" height="28" rx="8" fill="#0f766e"/>
@@ -1088,7 +1254,7 @@
           }
 
           const lbl = document.createElement('div');
-          lbl.style.fontSize = '0.8rem';
+          lbl.style.fontSize = '0.74rem';
           lbl.style.fontWeight = '700';
           lbl.style.color = '#0f766e';
           lbl.textContent = `Nilai: ${card.val}`;
@@ -1103,10 +1269,11 @@
         } else {
           binaryStr += '0';
           const closedTxt = document.createElement('div');
-          closedTxt.style.marginTop = '22px';
-          closedTxt.style.fontSize = '0.78rem';
+          closedTxt.style.marginTop = '16px';
+          closedTxt.style.fontSize = '0.7rem';
           closedTxt.style.fontWeight = '700';
-          closedTxt.innerHTML = 'KARTU<br>TERTUTUP<br>(0)';
+          closedTxt.style.lineHeight = '1.25';
+          closedTxt.innerHTML = 'KARTU<br>TUTUP<br>(0)';
 
           const pill = document.createElement('span');
           pill.className = 'bit-pill';
